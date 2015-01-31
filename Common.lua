@@ -19,7 +19,36 @@ if tekDebug then
 end
 ns.Debug = Debug
 
-ns.C = LibStub('LibColors-1.0').color
+local LC = LibStub('LibColors-1.0')
+LC.colorset({
+  ["ltyellow"]  = "fff569",
+  ["dkyellow"]  = "ffcc00",
+  ["ltorange"]  = "ff9d6a",
+  ["dkorange"]  = "905d0a",
+  ["dkred"]   = "c41f3b",
+  ["ltred"]   = "ff8080",
+  ["dkred"]   = "800000",
+  ["violet"]    = "f000f0",
+  ["ltviolet"]  = "f060f0",
+  ["dkviolet"]  = "800080",
+  ["ltblue"]    = "69ccf0",
+  ["dkblue"]    = "000088",
+  ["ltcyan"]    = "80ffff",
+  ["dkcyan"]    = "008080",
+  ["ltgreen"]   = "80ff80",
+  ["dkgreen"]   = "00aa00",
+
+  ["dkgray"]    = "404040",
+  ["ltgray"]    = "b0b0b0",
+
+  ["gold"]    = "ffd700",
+  ["silver"]    = "eeeeef",
+  ["copper"]    = "f0a55f",
+
+  ["unknown"]   = "ee0000",
+})
+ns.C = LC.color
+
 
 ns.GetShortCoinString = function(value)
   if value > 100*100 then
