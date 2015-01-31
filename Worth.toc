@@ -1,10 +1,10 @@
-## Interface: 30300
+## Interface: 60000
 ## Title: Worth
 ## Notes: Data broker for aggregated character worth including AH, vendor and disenchant value of all items
 ## Dependencies: Auc-Advanced
 ## OptionalDeps: Enchantrix, Bazooka, FuBar, TitanPanel, tekDebug
 ## Author: Awestroke
-## Version: 0.1A
+## Version: 0.2
 ## SavedVariables: WorthDB
 
 #@no-lib-strip@
