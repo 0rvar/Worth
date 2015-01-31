@@ -2,13 +2,22 @@ local addon, ns = ...
 local _G = _G
 
 local unpack, pairs, ipairs, table, math = unpack, pairs, ipairs, table, math
-local next = next
+local next, string = next, string
 local IsSpellKnown = IsSpellKnown
 local C_Garrison = C_Garrison
 local GetItemInfo = GetItemInfo
 local GetCoinTextureString = GetCoinTextureString
 local UIParent = UIParent
 local ITEM_SOULBOUND = ITEM_SOULBOUND
+
+local Debug = function() end
+if tekDebug then
+  local dbf = tekDebug:GetFrame(addon)
+  Debug = function(...)
+    dbf:AddMessage(string.join(", ", ...))
+  end
+end
+ns.Debug = Debug
 
 ns.C = LibStub('LibColors-1.0').color
 

@@ -179,7 +179,6 @@ end
 local updateFrame = CreateFrame("Frame")
 local function refresh(self, event, ...)
   if event == "PLAYER_ENTERING_WORLD" then
-    updateFrame:RegisterEvent("BAG_UPDATE")
     updateFrame:RegisterEvent("UNIT_INVENTORY_CHANGED")
     updateFrame:RegisterEvent("PLAYER_MONEY")
     updateFrame:RegisterEvent("BANKFRAME_OPENED")
@@ -212,6 +211,12 @@ local function refresh(self, event, ...)
       local _, itemCount, _, _, _, _, _ = GetContainerItemInfo(bagID, slot)
       if itemCount ~= nil and itemCount > 0 and (blacklist[bagID] == nil or blacklist[bagID][slot] == nil) then
         local itemId = GetContainerItemID(bagID, slot)
+        local name,_ = GetItemInfo(itemId)
+        if name == nil then
+          -- Item is not cached, redo this some other time
+          ns.Debug("Item not cached, skipping")
+          return
+        end
         local soulbound = ns.IsSlotSoulbound(bagID, slot)
         table.insert(targetTable, {id = itemId, count = itemCount, soulbound = soulbound})
       end
@@ -230,6 +235,8 @@ local function refresh(self, event, ...)
   if #bankItems > 0 or not DB[FACTION][REALM][PLAYER].bankItems then
     DB[FACTION][REALM][PLAYER].bankItems = bankItems
   end
+
+  ns.Debug("Refresh: "..event, "Worth "..CalculateWorth())
 
   -- Record worth at login - not reliable on first login (why?)
   if SessionStart.totalMoney == nil then

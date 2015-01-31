@@ -2,10 +2,10 @@
 ## Title: Wortth
 ## Notes: Data broker for aggregated character worth including AH, vendor and disenchant value of all items
 ## Dependencies: Auc-Advanced
-## OptionalDeps: Enchantrix, Bazooka, FuBar, TitanPanel, AdiDebug
+## OptionalDeps: Enchantrix, Bazooka, FuBar, TitanPanel, tekDebug
 ## Author: Awestroke
 ## Version: 0.1A
-## SavedVariables: TotalWorthDB
+## SavedVariables: WorthDB
 
 #@no-lib-strip@
 libs\LibStub\LibStub.lua
