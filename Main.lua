@@ -214,7 +214,7 @@ local function refresh(self, event, ...)
         local name,_ = GetItemInfo(itemId)
         if name == nil then
           -- Item is not cached, redo this some other time
-          ns.Debug("Item not cached, skipping")
+          if ns.Debug then ns.Debug("Item not cached, skipping") end
           return
         end
         local soulbound = ns.IsSlotSoulbound(bagID, slot)
@@ -236,7 +236,7 @@ local function refresh(self, event, ...)
     DB[FACTION][REALM][PLAYER].bankItems = bankItems
   end
 
-  ns.Debug("Refresh: "..event, "Worth "..CalculateWorth())
+  if ns.Debug then ns.Debug("Refresh: "..event, "Worth "..CalculateWorth()) end
 
   -- Record worth at login - not reliable on first login (why?)
   if SessionStart.totalMoney == nil then

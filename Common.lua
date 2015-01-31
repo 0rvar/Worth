@@ -10,7 +10,7 @@ local GetCoinTextureString = GetCoinTextureString
 local UIParent = UIParent
 local ITEM_SOULBOUND = ITEM_SOULBOUND
 
-local Debug = function() end
+local Debug = nil
 if tekDebug then
   local dbf = tekDebug:GetFrame(addon)
   Debug = function(...)
