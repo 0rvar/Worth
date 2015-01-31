@@ -1,0 +1,20 @@
+## Interface: 30300
+## Title: Wortth
+## Notes: Data broker for aggregated character worth including AH, vendor and disenchant value of all items
+## Dependencies: Auc-Advanced
+## OptionalDeps: Enchantrix, Bazooka, FuBar, TitanPanel, AdiDebug
+## Author: Awestroke
+## Version: 0.1A
+## SavedVariables: TotalWorthDB
+
+#@no-lib-strip@
+libs\LibStub\LibStub.lua
+libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+libs\LibQTip-1.0\lib.xml
+libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
+libs\LibDBIcon-1.0\LibDBIcon-1.0.lua
+libs\LibColors-1.0\LibColors-1.0.xml
+#@end-no-lib-strip@
+
+Common.lua
+Main.lua
